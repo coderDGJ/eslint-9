@@ -35,3 +35,83 @@
 ### 使用 commitlint 规范 git commit
 1. 安装 commitlint : pnpm add -D @commitlint/cli @commitlint/config-conventional
 2. 运行： echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js (新建commitlint.config.js,并写入配置项目)
+3.package.json 配置
+```
+ "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx commitlint --edit"
+  }
+```
+4. 运行： npx simple-git-hooks
+5.package.json 配置
+```
+"config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+```
+
+# Git 提交规范
+本项目使用 [Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) 规范进行 Git 提交。
+
+## 提交格式
+
+提交信息必须符合以下格式：
+
+```
+type(scope?): subject
+```
+
+### 提交类型（type）
+
+- ✨ `feat`: 新功能
+- 🐛 `fix`: 修复bug
+- 📝 `docs`: 文档变更
+- 💄 `style`: 代码格式（不影响代码运行的变动）
+- ♻️ `refactor`: 重构（既不是新增功能，也不是修复bug）
+- ⚡️ `perf`: 性能优化
+- ✅ `test`: 增加测试
+- 🔨 `chore`: 构建过程或辅助工具的变动
+- ⏪️ `revert`: 回退
+- 📦️ `build`: 打包
+- 🎡 `ci`: CI相关变更
+
+### 示例
+
+```bash
+# 添加新功能
+git commit -m "feat: 添加用户登录功能"
+
+# 修复bug
+git commit -m "fix: 修复登录按钮点击无响应的问题"
+
+# 更新文档
+git commit -m "docs: 更新API文档"
+```
+
+## 使用提交助手
+
+我们推荐使用 commitizen 来帮助格式化提交信息：
+
+1. 全局安装 commitizen：
+```bash
+npm install -g commitizen
+```
+
+2. 使用 cz 替代 git commit：
+```bash
+git add .
+cz
+```
+
+然后按照提示进行选择和填写即可。
+
+## 提交验证
+
+每次提交时，系统会自动验证提交信息是否符合规范。如果不符合规范，提交将被拒绝。常见错误：
+
+- ✖ type may not be empty: 未指定提交类型
+- ✖ subject may not be empty: 未填写提交描述
+
+请按照上述格式规范提交，确保提交信息清晰明了。

@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "commitlint": "commitlint --edit"
+    "commit": "cz"
   },
   "dependencies": {
     "vue": "^3.5.13"
@@ -18,9 +18,12 @@
     "@antfu/eslint-config": "^4.13.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/types": "^19.8.1",
     "@unocss/eslint-plugin": "^66.1.1",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.26.0",
     "lint-staged": "^16.0.0",
     "simple-git-hooks": "^2.13.0",
@@ -29,9 +32,15 @@
     "vue-tsc": "^2.2.8"
   },
   "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npx commitlint --edit"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue,mjs}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
