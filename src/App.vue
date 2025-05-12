@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-
 import HelloWorld from './components/HelloWorld.vue'
-
-const main = ref('12312')
 </script>
 
 <template>
