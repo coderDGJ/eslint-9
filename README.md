@@ -21,3 +21,13 @@
 1. 安装 simple-git-hooks : pnpm add simple-git-hooks -D
 2. 安装 lint-staged : pnpm add lint-staged -D
 3. 初始化 git hooks : npx simple-git-hooks
+4. 配置 package.json
+```
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue,mjs}": "eslint --fix"
+  }
+```
+提交代码的时候 会自动执行 eslint --fix 修复代码 ， 如果有错误也会提示
