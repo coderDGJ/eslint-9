@@ -1,39 +1,41 @@
-import antfu from "@antfu/eslint-config";
-// 第一个参数是该插件配置   从第二个参数起时 eslint的
-export default antfu(
-    {
-        // 项目类型。'lib' 表示库，默认为 'app'
-        type: "app",
-        // 或自定义样式规则
-        stylistic: {
-            indent: 4, // 4, 或 'tab'
-            quotes: "double", // 双引号 / 单引号
-            semi: true, // 是否使用分号
-            jsx: true, // 是否启用 JSX
-            // 行尾换行符
-            // 单引号
-            // 尾随逗号
-            // 对象括号间距
-            // JSX 标签闭合在同一行
-            // 箭头函数参数括号
+import antfu from '@antfu/eslint-config'
 
-        },
-        // TypeScript 和 Vue 是自动检测的，你也可以明确启用它们：
-        typescript: true,
-        vue: {
-            overrides: {
-                "vue/multi-word-component-names": "off",
-            },
-        },
-
-        // 禁用 jsonc 和 yaml 支持
-        jsonc: false,
-        yaml: false,
-
-        // Flat 配置中不再支持 `.eslintignore`，请使用 `ignores` 代替
-        ignores: [
-            "**/fixtures",
-            // ...globs
-        ],
+export default antfu({
+  unocss: false, // 启用 unocss
+  markdown: false, // 禁用 markdown 规则
+  vue: {
+    overrides: {
+      // 组件名称在模板中使用 PascalCase 命名
+      'vue/component-name-in-template-casing': [
+        'error',
+        'PascalCase',
+        { registeredComponentsOnly: false, ignores: ['micro-app', 'DefaultTheme.Layout'] },
+      ],
+      // 组件定义名称使用 PascalCase 命名
+      'vue/component-definition-name-casing': 'off',
     },
-);
+  },
+  typescript: true, // 启用 typescript 规则
+  ignores: ['src/assets/*'], // 忽略 src/assets 目录
+  stylistic: { // 启用 stylistic 规则
+    overrides: {
+      'style/indent-binary-ops': ['error', 2], // 强制使用 2 个空格缩进
+    },
+  },
+}, {
+  rules: {
+    'no-restricted-syntax': 'off', // 禁用 no-restricted-syntax 规则
+    'unused-imports/no-unused-imports': 'warn', // 警告未使用的导入
+    // 排序导入
+    'perfectionist/sort-imports': ['error', {
+      groups: [
+        ['builtin', 'external'], // 内置和外部导入
+        ['internal', 'parent', 'sibling', 'index', 'object', 'unknown'], // 内部、父级、同级、索引、对象、未知
+        'style', // 样式
+        ['external-type', 'type', 'parent-type', 'sibling-type', 'index-type', 'internal-type'], // 外部类型、类型、父级类型、同级类型、索引类型、内部类型
+      ],
+    }],
+    'sort-imports': 'off', // 禁用 sort-imports 规则
+    'import/order': 'off', // 禁用 import/order 规则
+  },
+})
