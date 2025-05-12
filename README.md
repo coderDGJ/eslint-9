@@ -14,3 +14,8 @@
 ### git-hook
 1. 安装 husky : pnpm add husky -D
 2. 初始化husky : pnpm exec husky init 
+3. 编写 shell 脚本
+如果项目需要在每多个 git操作阶段执行脚本，请使用 husky
+
+#该项目使用更轻量的 simple-git-hooks 如果项目比较小型，可以考虑使用
+1. 
