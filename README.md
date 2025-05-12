@@ -18,4 +18,6 @@
 如果项目需要在每多个 git操作阶段执行脚本，请使用 husky
 
 #该项目使用更轻量的 simple-git-hooks 如果项目比较小型，可以考虑使用
-1. 
+1. 安装 simple-git-hooks : pnpm add simple-git-hooks -D
+2. 安装 lint-staged : pnpm add lint-staged -D
+3. 初始化 git hooks : npx simple-git-hooks

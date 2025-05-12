@@ -2,7 +2,7 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu({
   unocss: false, // 启用 unocss
-  markdown: false, // 禁用 markdown 规则
+  markdown: true, // 禁用 markdown 规则
   vue: {
     overrides: {
       // 组件名称在模板中使用 PascalCase 命名
@@ -25,7 +25,7 @@ export default antfu({
 }, {
   rules: {
     'no-restricted-syntax': 'off', // 禁用 no-restricted-syntax 规则
-    'unused-imports/no-unused-imports': 'warn', // 警告未使用的导入
+    'unused-imports/no-unused-imports': 'error', // 警告未使用的导入
     // 排序导入
     'perfectionist/sort-imports': ['error', {
       groups: [
