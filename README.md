@@ -31,3 +31,7 @@
   }
 ```
 提交代码的时候 会自动执行 eslint --fix 修复代码 ， 如果有错误也会提示
+
+### 使用 commitlint 规范 git commit
+1. 安装 commitlint : pnpm add -D @commitlint/cli @commitlint/config-conventional
+2. 运行： echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js (新建commitlint.config.js,并写入配置项目)
