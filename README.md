@@ -47,7 +47,7 @@
 ```
 "config": {
     "commitizen": {
-      "path": "cz-conventional-changelog"
+      "path": "@commitlint/cz-commitlint"
     }
   }
 ```
@@ -89,29 +89,3 @@ git commit -m "fix: 修复登录按钮点击无响应的问题"
 # 更新文档
 git commit -m "docs: 更新API文档"
 ```
-
-## 使用提交助手
-
-我们推荐使用 commitizen 来帮助格式化提交信息：
-
-1. 全局安装 commitizen：
-```bash
-npm install -g commitizen
-```
-
-2. 使用 cz 替代 git commit：
-```bash
-git add .
-cz
-```
-
-然后按照提示进行选择和填写即可。
-
-## 提交验证
-
-每次提交时，系统会自动验证提交信息是否符合规范。如果不符合规范，提交将被拒绝。常见错误：
-
-- ✖ type may not be empty: 未指定提交类型
-- ✖ subject may not be empty: 未填写提交描述
-
-请按照上述格式规范提交，确保提交信息清晰明了。
